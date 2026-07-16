@@ -1,3 +1,21 @@
 <Solution>
-  <Project Path="ticket-reservation-platform/ticket-reservation-platform.csproj" />
+  <Folder Name="/Solution Items/">
+    <Project Path="docker-compose.dcproj">
+      <Build />
+    </Project>
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="Application/Application.csproj" Id="cad82cb4-6019-4c59-b976-2cdd9a4f1316" />
+  </Folder>
+  <Folder Name="/src/EntryPoints/">
+    <Project Path="src/ticket-reservation-platform.WebApi/ticket-reservation-platform.WebApi.csproj" />
+    <Project Path="ticket-reservation-platform-payment.Worker/ticket-reservation-platform-payment.Worker.csproj" Id="ba942373-7e53-4ee0-9f21-7b86c030003e" />
+    <Project Path="ticket-reservation-platform.Worker/ticket-reservation-platform.Worker.csproj" Id="22548a4e-8ad2-460e-883b-3b0c486ab801" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/" />
+  <Folder Name="/src/Infrastructure/sql/">
+    <Project Path="Infrastructure/Infrastructure.csproj" Id="3784a81c-8d16-4cc1-bf41-dbeb2ae17b45" />
+  </Folder>
+  <Folder Name="/tests/" />
 </Solution>

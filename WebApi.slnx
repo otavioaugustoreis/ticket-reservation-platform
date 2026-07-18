@@ -8,8 +8,6 @@
   <Folder Name="/src/Application/">
     <Project Path="Application/Application.csproj" Id="cad82cb4-6019-4c59-b976-2cdd9a4f1316" />
   </Folder>
-  <Folder Name="/src/Application/Shared/" />
-  <Folder Name="/src/Application/UseCases/" />
   <Folder Name="/src/Domain/">
     <Project Path="Domain/Domain.csproj" Id="ca5003a6-f84d-44d6-b01f-660c3baa4bf1" />
   </Folder>

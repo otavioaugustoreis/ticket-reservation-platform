@@ -1,11 +1,11 @@
 ﻿using Domain.Entities;
 
-namespace Domain.Repositories
+namespace Domain.Abstractions
 {
     public interface IEventRepository
     {
-        Task<IReadOnlyList<Customer>> GetAllAsync(CancellationToken cancellationToken = default);
-        Task<Customer?> GetAsync(CancellationToken cancellationToken = default);
-        Task<bool> CreateAsync(int id, CancellationToken cancellationToken = default);
+        Task<IReadOnlyList<Event>> GetAllAsync(CancellationToken cancellationToken = default);
+        Task<Event?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task<int?> CreateAsync(Event events, CancellationToken cancellationToken = default);
     }
 }

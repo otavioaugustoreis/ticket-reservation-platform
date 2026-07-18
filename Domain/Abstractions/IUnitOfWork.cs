@@ -1,5 +1,4 @@
-﻿
-namespace Domain.Repositories
+﻿namespace Domain.Abstractions
 {
     public interface IUnitOfWork : IDisposable
     {

@@ -6,8 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
         
-	
-	
   <ItemGroup>
     <Folder Include="Queries\" />
   </ItemGroup>
@@ -19,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 {
     public class Reservation
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int ClientId { get; set; }
         public int SeatId { get; set; }
         public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;

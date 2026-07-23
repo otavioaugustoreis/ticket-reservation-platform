@@ -1,12 +1,8 @@
-services:
-  mongo:
-    image: mongo:7
-    container_name: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
+networks:
+  local_network:
+    driver: bridge
 
+services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.4.1
     container_name: zookeeper
@@ -15,6 +11,8 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    networks:
+      - local_network
 
   kafka:
     image: confluentinc/cp-kafka:7.4.1
@@ -31,6 +29,39 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+      - local_network
+ 
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    depends_on:
+      - kafka
+    container_name: kafdrop
+    restart: "no"
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: "kafka:29092"
+    networks:
+      - local_network
 
-volumes:
-  mongo_data:
+  sqldata:
+      image: mcr.microsoft.com/mssql/server:2019-CU23-ubuntu-20.04 
+      container_name: sqldata
+      hostname: sqlserver
+      environment:
+        - SA_PASSWORD=Pass@word123
+        - ACCEPT_EULA=Y
+        - MSSQL_PID=Deeveloper
+      ports:
+        - "1433:1433"
+      volumes:
+        - ./scripts/:/scripts/
+      command:
+        - /bin/bash
+        - -c
+        - |
+          /opt/mssql/bin/sqlservr & 
+          sleep 20
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Pass@word123 -l 30 -e -i /scripts/SQL_TICKETERIA.sql
+          sleep infinity

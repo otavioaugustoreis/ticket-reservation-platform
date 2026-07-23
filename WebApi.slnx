@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/scripts/">
+    <File Path="scripts/SQL_TICKETERIA.sql" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <Project Path="docker-compose.dcproj">
       <Build />

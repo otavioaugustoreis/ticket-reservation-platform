@@ -3,13 +3,12 @@ using Infrastructure.Abstractions;
 using Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel;
 
 namespace Infrastructure
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection SqlInstaller(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddSqlInstaller(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<SqlServerOptionsConfiguration>(configuration.GetSection(SqlServerOptionsConfiguration.Section));
             services.AddScoped<ISqlConnectionFactory, SqlConnectionFactory>();

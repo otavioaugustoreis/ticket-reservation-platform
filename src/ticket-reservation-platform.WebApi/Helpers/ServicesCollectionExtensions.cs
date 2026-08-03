@@ -1,5 +1,5 @@
-﻿
-using ticket_reservation_platform.Helpers;
+﻿using Application.UseCase;
+using Infrastructure;
 
 namespace ticket_reservation_platform.Helpers
 {
@@ -10,7 +10,8 @@ namespace ticket_reservation_platform.Helpers
             services
                 .InitializeApplicationServices(configuration)
                 .AddUseCasesExtensions(configuration)
-                .AddProducers(configuration);
+                .AddProducers(configuration)
+                .AddSqlInstaller(configuration);
 
             return services;
         }
@@ -22,6 +23,8 @@ namespace ticket_reservation_platform.Helpers
 
         public static IServiceCollection AddUseCasesExtensions(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddUseCases();
+
             return services;
         }
 

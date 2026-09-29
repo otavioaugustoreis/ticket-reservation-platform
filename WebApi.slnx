@@ -1,5 +1,5 @@
 <Solution>
-  <Folder Name="/scripts/">
+  <Folder Name="/data/">
     <File Path="scripts/SQL_TICKETERIA.sql" />
   </Folder>
   <Folder Name="/Solution Items/">

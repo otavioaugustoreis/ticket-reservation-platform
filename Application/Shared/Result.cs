@@ -1,6 +1,5 @@
 ﻿namespace Application.Shared
 {
-
     public class Result 
     {
         public Error? Error { get; private set; }
